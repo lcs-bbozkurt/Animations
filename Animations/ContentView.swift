@@ -44,18 +44,19 @@ struct ContentView: View {
                     ) {
                         // 3. Rotate the star (change rotation state)
                         starRotation += 360.0 * 2      // 3. Desired end opacity for unfilled star
-                       
-                        unfilledStarOpacity += 0.0 // See-through
                         
-                        
+                        unfilledStarOpacity = 1.0 // Opaque
                         // 3. Desired end opacity for filled star
-                        filledStarOpacity = 1.0 // See-through
+                        filledStarOpacity = 0.0 // See-through
 
                         
                         
-                    
+                        
+                        
+                        
+                        
+                    }
                 }
-            }
             
             
             // Unfilled star
@@ -65,7 +66,7 @@ struct ContentView: View {
                 .foregroundColor(.yellow)
                 .rotation3DEffect(.degrees(starRotation), axis: (x: 0, y: 1, z: 0))
                 .opacity(unfilledStarOpacity)
-
+            
             // 2. Trigger the stage change with a tap.
                 .onTapGesture {
                     withAnimation (
@@ -73,11 +74,14 @@ struct ContentView: View {
                     ) {
                         // 3. Rotate the star (change rotation state)
                         starRotation += 360.0 * 2
+                        
+                        unfilledStarOpacity = 0.0 // See-through
+                        // 3. Desired end opacity for filled star
+                        filledStarOpacity = 1.0 // opaque
 
-
-                  
+                        
+                    }
                 }
-            }
         }
         
         
