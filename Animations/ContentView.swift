@@ -18,18 +18,20 @@ struct ContentView: View {
     
     
     var body: some View {
-       Image(systemName: "star")
+        Image(systemName: "star")
             .resizable()
             .frame(width: 40, height: 40)
             .foregroundColor(.yellow)
             .rotation3DEffect(.degrees(starRotation), axis: (x: 0, y: 1, z: 0))
-            .animation(.default)
+        
         // 2. Trigger the stage change with a tap.
             .onTapGesture {
-                // 3. Rotate the star (change rotation state)
-                starRotation += 360.0 * 2
+                withAnimation {
+                    // 3. Rotate the star (change rotation state)
+                    starRotation += 360.0 * 2
+                    
             }
-        
+        }
     }
 }
 
