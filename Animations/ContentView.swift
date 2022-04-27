@@ -26,7 +26,9 @@ struct ContentView: View {
         
         // 2. Trigger the stage change with a tap.
             .onTapGesture {
-                withAnimation {
+                withAnimation (
+                    Animation.easeInOut(duration: 2.0)
+                ) {
                     // 3. Rotate the star (change rotation state)
                     starRotation += 360.0 * 2
                     
